@@ -389,16 +389,22 @@ def reverse_list_in_place(my_list):
 
        Do not use the python methed reverse()/reversed()
 
-        >>> reverse_list([1, 2, 3])
+        >>> reverse_list_in_place([1, 2, 3])
         [3, 2, 1]
 
-        >>> reverse_list(["cookies", "love", "I"])
+        >>> reverse_list_in_place(["cookies", "love", "I"])
         ['I', 'love', 'cookies']
+
+        >>> reverse_list_in_place(["kitties", "are", "the", "coolest"])
+        ['coolest', 'the', 'are', 'kitties']
 
 
     """
-    for item in my_list:
-        my_list.insert(item)
+    for idx, item in enumerate(my_list):
+        if idx == (len(my_list)/2):
+            break
+
+        my_list[idx], my_list[len(my_list) - (idx + 1)] = my_list[len(my_list) - (idx + 1)], my_list[idx]
 
     return my_list
 
